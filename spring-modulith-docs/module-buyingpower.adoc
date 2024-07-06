@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.acmebank.ordermanagementservice.buyingpower`
+|Spring components
+|* `c.a.o.b.BuyingPowerApiService`
+|Events listened to
+|* `c.a.o.o.OrderFilledEvent`
+|===

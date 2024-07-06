@@ -1,0 +1,22 @@
+@startuml
+set separator none
+title OrderManagementServiceApplication
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "Order", $techn="Module", $descr="", $tags="", $link="")
+}
+
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "uses", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "listens to", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml
