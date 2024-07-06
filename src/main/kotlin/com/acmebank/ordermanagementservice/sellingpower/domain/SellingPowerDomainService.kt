@@ -16,7 +16,6 @@ class SellingPowerDomainService(
     private val sellingPowerRepository: SellingPowerRepository,
     private val applicationEventPublisher: ApplicationEventPublisher,
 ) : SellingPowerApiService {
-
     @Transactional
     fun updateSellingPower(sellingPowerUpdateCommand: SellingPowerUpdateCommand) {
         sellingPowerRepository.updateSellingPower(sellingPowerUpdateCommand).also {
@@ -34,7 +33,8 @@ class SellingPowerDomainService(
 
     fun getSellingPower(sellingPowerKey: SellingPowerKey): SellingPower = sellingPowerRepository.getSellingPower(sellingPowerKey)
 
-    override fun getAvailableSellingPower(customerId: String, symbol: String): BigDecimal {
-        return BigDecimal.ZERO
-    }
+    override fun getAvailableSellingPower(
+        customerId: String,
+        symbol: String,
+    ): BigDecimal = BigDecimal.ZERO
 }

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
 @AllOpen
-class SellingPowerOrderFilledEventListener(
+class SellingPowerUpdateCommandApiListener(
     private val sellingPowerDomainService: SellingPowerDomainService,
 ) {
     private val logger = LoggerFactory.getLogger(this::class.java)
@@ -21,8 +21,8 @@ class SellingPowerOrderFilledEventListener(
             SellingPowerUpdateCommand(
                 customerId = sellingPowerUpdateCommandApi.customerId,
                 symbol = sellingPowerUpdateCommandApi.symbol,
-                quantity = sellingPowerUpdateCommandApi.quantity
-            )
+                quantity = sellingPowerUpdateCommandApi.quantity,
+            ),
         )
     }
 }

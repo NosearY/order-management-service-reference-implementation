@@ -8,7 +8,6 @@ import com.acmebank.ordermanagementservice.buyingpower.toBuyingPowerApi
 class BuyingPowerUpdateService(
     private val coreBankingBalanceSupplier: CoreBankingBalanceSupplier,
 ) : BuyingPowerApiService {
-
     override fun getAvailableBuyingPower(customerId: String): BuyingPowerApi =
         BuyingPower(
             customerId = customerId,

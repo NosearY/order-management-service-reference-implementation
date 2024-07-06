@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
 @AllOpen
-class BuyingPowerOrderFilledEventListener(
+class BuyingPowerUpdateCommandApiListener(
     private val buyingPowerDomainService: BuyingPowerDomainService,
 ) {
     private val logger = LoggerFactory.getLogger(this::class.java)
@@ -20,7 +20,7 @@ class BuyingPowerOrderFilledEventListener(
         buyingPowerDomainService.updateBuyingPower(
             BuyingPowerUpdateCommand(
                 buyingPowerUpdateCommandApi.customerId,
-                buyingPowerUpdateCommandApi.delta
+                buyingPowerUpdateCommandApi.delta,
             ),
         )
     }

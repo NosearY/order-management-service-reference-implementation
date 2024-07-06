@@ -14,7 +14,6 @@ import java.math.BigDecimal
 class BuyingPowerController(
     private val buyingPowerApiService: BuyingPowerApiService,
 ) {
-    
     @GetMapping("/{customerId}", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getBuyingPower(
         @PathVariable customerId: String,

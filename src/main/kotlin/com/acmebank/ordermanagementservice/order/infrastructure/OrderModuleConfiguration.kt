@@ -16,8 +16,10 @@ class OrderModuleConfiguration {
     fun orderRepository() = InMemoryOrderRepository(ConcurrentHashMap())
 
     @Bean
-    fun orderValidationService(buyingPowerApi: BuyingPowerApiService, sellingPowerApiService: SellingPowerApiService) =
-        OrderValidationService(buyingPowerApi, sellingPowerApiService)
+    fun orderValidationService(
+        buyingPowerApi: BuyingPowerApiService,
+        sellingPowerApiService: SellingPowerApiService,
+    ) = OrderValidationService(buyingPowerApi, sellingPowerApiService)
 
     @Bean
     fun orderService(

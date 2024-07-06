@@ -12,7 +12,6 @@ class BuyingPowerDomainService(
     private val coreBankingBalanceSupplier: CoreBankingBalanceSupplier,
     private val applicationEventPublisher: ApplicationEventPublisher,
 ) {
-
     @Transactional
     fun updateBuyingPower(buyingPowerUpdateCommand: BuyingPowerUpdateCommand) {
         val updatedBalance = coreBankingBalanceSupplier.updateAvailableBalance(buyingPowerUpdateCommand)

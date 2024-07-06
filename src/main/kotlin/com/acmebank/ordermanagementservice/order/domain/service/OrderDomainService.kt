@@ -28,17 +28,19 @@ class OrderDomainService(
 
     fun listOrders(account: Account): List<Order> = orderRepository.listOrders(account)
 
-    private fun publishAssetsUpdateCommand(orderCreationCommand: OrderCreationCommand) = with(orderCreationCommand) {
-        val (cashUpdate, assetUpdate) = when (orderDirection) {
-            OrderDirection.BUY -> {
-                priceLimit.times(quantity.toBigDecimal()).negate() to quantity
-            }
+    private fun publishAssetsUpdateCommand(orderCreationCommand: OrderCreationCommand) =
+        with(orderCreationCommand) {
+            val (cashUpdate, assetUpdate) =
+                when (orderDirection) {
+                    OrderDirection.BUY -> {
+                        priceLimit.times(quantity.toBigDecimal()).negate() to quantity
+                    }
 
-            OrderDirection.SELL -> {
-                priceLimit.times(quantity.toBigDecimal()) to -quantity
-            }
+                    OrderDirection.SELL -> {
+                        priceLimit.times(quantity.toBigDecimal()) to -quantity
+                    }
+                }
+            applicationEventPublisher.publishEvent(BuyingPowerUpdateCommandApi(account.customerId, cashUpdate))
+            applicationEventPublisher.publishEvent(SellingPowerUpdateCommandApi(account.customerId, stock.symbol, assetUpdate))
         }
-        applicationEventPublisher.publishEvent(BuyingPowerUpdateCommandApi(account.customerId, cashUpdate))
-        applicationEventPublisher.publishEvent(SellingPowerUpdateCommandApi(account.customerId, stock.symbol, assetUpdate))
-    }
 }
