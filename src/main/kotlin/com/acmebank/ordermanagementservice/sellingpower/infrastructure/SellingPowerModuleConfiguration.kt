@@ -1,6 +1,5 @@
 package com.acmebank.ordermanagementservice.sellingpower.infrastructure
 
-import com.acmebank.ordermanagementservice.sellingpower.SellingPowerServiceApi
 import com.acmebank.ordermanagementservice.sellingpower.application.eventlistener.SellingPowerCorporateActionEffectiveEventListener
 import com.acmebank.ordermanagementservice.sellingpower.application.eventlistener.SellingPowerOrderFilledEventListener
 import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerDomainService
@@ -28,7 +27,4 @@ class SellingPowerModuleConfiguration {
     @Bean
     fun sellingPowerCorporateActionEffectiveEventListener(sellingPowerDomainService: SellingPowerDomainService) =
         SellingPowerCorporateActionEffectiveEventListener(sellingPowerDomainService)
-
-    @Bean
-    fun sellingPowerServiceApi() = SellingPowerServiceApi()
 }

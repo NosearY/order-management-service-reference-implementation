@@ -14,9 +14,9 @@ Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceAppl
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
 }
 
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "uses", $techn="", $tags="", $link="")
 Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "listens to", $techn="", $tags="", $link="")
 Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "listens to", $techn="", $tags="", $link="")
-Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "uses", $techn="", $tags="", $link="")
 
 SHOW_LEGEND(true)
 @enduml

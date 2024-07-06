@@ -1,9 +1,9 @@
 package com.acmebank.ordermanagementservice.buyingpower.application.eventlistener
 
 import com.acmebank.ordermanagementservice.AllOpen
+import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerUpdateCommandApi
 import com.acmebank.ordermanagementservice.buyingpower.domain.model.BuyingPowerUpdateCommand
 import com.acmebank.ordermanagementservice.buyingpower.domain.service.BuyingPowerDomainService
-import com.acmebank.ordermanagementservice.order.OrderFilledEvent
 import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
@@ -14,13 +14,13 @@ class BuyingPowerOrderFilledEventListener(
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     @ApplicationModuleListener
-    fun onOrderFilledEvent(orderFilledEvent: OrderFilledEvent) {
-        logger.info("Received $orderFilledEvent")
+    fun onOrderFilledEvent(buyingPowerUpdateCommandApi: BuyingPowerUpdateCommandApi) {
+        logger.info("Received $buyingPowerUpdateCommandApi")
 
         buyingPowerDomainService.updateBuyingPower(
             BuyingPowerUpdateCommand(
-                orderFilledEvent.account.customerId,
-                (orderFilledEvent.priceLimit * orderFilledEvent.quantity.toBigDecimal()).negate(),
+                buyingPowerUpdateCommandApi.customerId,
+                buyingPowerUpdateCommandApi.delta
             ),
         )
     }

@@ -4,7 +4,7 @@ import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
 import com.acmebank.ordermanagementservice.order.domain.repository.OrderRepository
 import com.acmebank.ordermanagementservice.order.domain.service.OrderDomainService
 import com.acmebank.ordermanagementservice.order.domain.service.OrderValidationService
-import com.acmebank.ordermanagementservice.sellingpower.SellingPowerServiceApi
+import com.acmebank.ordermanagementservice.sellingpower.SellingPowerApiService
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -16,8 +16,8 @@ class OrderModuleConfiguration {
     fun orderRepository() = InMemoryOrderRepository(ConcurrentHashMap())
 
     @Bean
-    fun orderValidationService(buyingPowerApiService: BuyingPowerApiService, sellingPowerServiceApi: SellingPowerServiceApi) =
-        OrderValidationService(buyingPowerApiService, sellingPowerServiceApi)
+    fun orderValidationService(buyingPowerApi: BuyingPowerApiService, sellingPowerApiService: SellingPowerApiService) =
+        OrderValidationService(buyingPowerApi, sellingPowerApiService)
 
     @Bean
     fun orderService(

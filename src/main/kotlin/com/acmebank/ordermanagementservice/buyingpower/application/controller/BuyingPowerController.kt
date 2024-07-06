@@ -1,6 +1,6 @@
 package com.acmebank.ordermanagementservice.buyingpower.application.controller
 
-import com.acmebank.ordermanagementservice.buyingpower.domain.service.BuyingPowerDomainService
+import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -12,13 +12,14 @@ import java.math.BigDecimal
 @RestController
 @RequestMapping("/buying-powers")
 class BuyingPowerController(
-    private val buyingDomainServiceService: BuyingPowerDomainService,
+    private val buyingPowerApiService: BuyingPowerApiService,
 ) {
+    
     @GetMapping("/{customerId}", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getBuyingPower(
         @PathVariable customerId: String,
     ): ResponseEntity<BigDecimal> =
         ResponseEntity.ok(
-            buyingDomainServiceService.getAvailableBuyingPower(customerId).balance,
+            buyingPowerApiService.getAvailableBuyingPower(customerId).balance,
         )
 }

@@ -9,8 +9,8 @@ top to bottom direction
 !include <C4/C4_Component>
 
 Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
-  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Notifications, "Notifications", $techn="Module", $descr="", $tags="", $link="")
 }
 

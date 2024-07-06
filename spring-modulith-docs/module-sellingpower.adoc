@@ -3,7 +3,7 @@
 |Base package
 |`com.acmebank.ordermanagementservice.sellingpower`
 |Spring components
-|* `c.a.o.s.SellingPowerServiceApi`
+|* `c.a.o.s.SellingPowerApiService` (via `c.a.o.s.domain.SellingPowerDomainService`)
 |Events listened to
 |* `c.a.o.c.CorporateActionEffectiveEvent`
 * `c.a.o.o.OrderFilledEvent`
