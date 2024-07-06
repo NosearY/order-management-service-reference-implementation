@@ -6,5 +6,5 @@ import java.math.BigDecimal
 interface CoreBankingBalanceSupplier {
     fun getAvailableBalance(customerId: String): BigDecimal
 
-    fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand)
+    fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand): BigDecimal
 }

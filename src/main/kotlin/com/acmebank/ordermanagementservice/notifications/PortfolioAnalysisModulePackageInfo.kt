@@ -1,0 +1,6 @@
+package com.acmebank.ordermanagementservice.notifications
+
+import org.springframework.modulith.PackageInfo
+
+@PackageInfo
+class PortfolioAnalysisModulePackageInfo

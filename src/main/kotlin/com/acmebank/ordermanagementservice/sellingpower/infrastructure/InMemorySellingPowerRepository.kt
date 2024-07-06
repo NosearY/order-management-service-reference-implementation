@@ -8,11 +8,11 @@ import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowe
 class InMemorySellingPowerRepository(
     private val db: MutableMap<SellingPowerKey, SellingPower>,
 ) : SellingPowerRepository {
-    override fun updateSellingPower(orderFilledEvent: OrderFilledEvent) {
-        val sellingPowerKey = SellingPowerKey(orderFilledEvent.customerId, orderFilledEvent.symbol)
-        db.compute(sellingPowerKey) { k, v ->
+    override fun updateSellingPower(orderFilledEvent: OrderFilledEvent): SellingPower {
+        val sellingPowerKey = SellingPowerKey(orderFilledEvent.customerId, orderFilledEvent.stock)
+        return db.compute(sellingPowerKey) { k, v ->
             SellingPower(k, (v?.quantity ?: 0f) + orderFilledEvent.quantity)
-        }
+        } ?: SellingPower(sellingPowerKey, 0f)
     }
 
     override fun getSellingPower(sellingPowerKey: SellingPowerKey): SellingPower =

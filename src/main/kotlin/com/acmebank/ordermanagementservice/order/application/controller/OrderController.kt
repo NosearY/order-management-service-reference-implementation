@@ -1,5 +1,6 @@
 package com.acmebank.ordermanagementservice.order.application.controller
 
+import com.acmebank.ordermanagementservice.marketdata.Stock
 import com.acmebank.ordermanagementservice.order.application.dto.CreateOrderRequest
 import com.acmebank.ordermanagementservice.order.application.dto.OrderResponse
 import com.acmebank.ordermanagementservice.order.application.toOrderDTO
@@ -29,7 +30,7 @@ class OrderController(
                 OrderCreationCommand(
                     customerId,
                     OrderDirection.valueOf(orderDirection),
-                    symbol,
+                    Stock(symbol),
                     quantity,
                     priceLimit,
                 ),

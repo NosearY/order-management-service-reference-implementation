@@ -7,7 +7,7 @@ fun Order.toOrderDTO() =
     OrderResponse(
         referenceNo,
         customerId,
-        symbol,
+        stock.symbol,
         quantity,
         priceLimit,
     )

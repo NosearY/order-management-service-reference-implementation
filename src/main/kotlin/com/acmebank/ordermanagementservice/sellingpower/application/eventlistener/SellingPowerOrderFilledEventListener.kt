@@ -2,13 +2,13 @@ package com.acmebank.ordermanagementservice.sellingpower.application.eventlisten
 
 import com.acmebank.ordermanagementservice.AllOpen
 import com.acmebank.ordermanagementservice.order.OrderFilledEvent
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerRepository
+import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerDomainService
 import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
 @AllOpen
 class SellingPowerOrderFilledEventListener(
-    private val sellingPowerRepository: SellingPowerRepository,
+    private val sellingPowerDomainService: SellingPowerDomainService,
 ) {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -16,6 +16,6 @@ class SellingPowerOrderFilledEventListener(
     fun onOrderFilledEvent(orderFilledEvent: OrderFilledEvent) {
         logger.info("Received $orderFilledEvent")
 
-        sellingPowerRepository.updateSellingPower(orderFilledEvent)
+        sellingPowerDomainService.updateSellingPower(orderFilledEvent)
     }
 }

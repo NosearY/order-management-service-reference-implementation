@@ -1,10 +1,11 @@
 package com.acmebank.ordermanagementservice.order.domain.model
 
+import com.acmebank.ordermanagementservice.marketdata.Stock
 import java.math.BigDecimal
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.*
+import java.util.UUID
 import kotlin.math.pow
 
 data class Order(
@@ -12,7 +13,7 @@ data class Order(
     val orderDirection: OrderDirection,
     val referenceNo: String,
     val customerId: String,
-    val symbol: String,
+    val stock: Stock,
     val quantity: Float,
     val priceLimit: BigDecimal,
 ) {
@@ -23,7 +24,7 @@ data class Order(
 
     constructor(
         customerId: String,
-        symbol: String,
+        symbol: Stock,
         quantity: Float,
         priceLimit: BigDecimal,
         orderDirection: OrderDirection,
@@ -32,7 +33,7 @@ data class Order(
         orderDirection = orderDirection,
         referenceNo = "${dateTimeFormatter.format(Instant.now())}_${(Math.random() * 10.0.pow(6.0)).toInt()}",
         customerId = customerId,
-        symbol = symbol,
+        stock = symbol,
         quantity = quantity,
         priceLimit = priceLimit,
     )

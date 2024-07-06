@@ -1,0 +1,6 @@
+package com.acmebank.ordermanagementservice.portfolioanalysis
+
+import org.springframework.modulith.PackageInfo
+
+@PackageInfo
+class PortfolioAnalysisInfoPackageInfo

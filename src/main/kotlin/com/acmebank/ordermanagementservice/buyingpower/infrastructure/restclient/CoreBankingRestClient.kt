@@ -9,9 +9,9 @@ class CoreBankingRestClient(
 ) : CoreBankingBalanceSupplier {
     override fun getAvailableBalance(customerId: String): BigDecimal = remoteDb.getOrDefault(customerId, BigDecimal("100"))
 
-    override fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand) {
-        remoteDb.compute(buyingPowerUpdateCommand.customerId) { _, v ->
+    override fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand): BigDecimal {
+        return remoteDb.compute(buyingPowerUpdateCommand.customerId) { _, v ->
             (v ?: BigDecimal.ZERO) + buyingPowerUpdateCommand.delta
-        }
+        } ?: BigDecimal.ZERO
     }
 }

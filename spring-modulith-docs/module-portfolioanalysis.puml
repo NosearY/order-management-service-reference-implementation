@@ -1,0 +1,21 @@
+@startuml
+set separator none
+title Portfolioanalysis
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, "Portfolioanalysis", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
+}
+
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "listens to", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

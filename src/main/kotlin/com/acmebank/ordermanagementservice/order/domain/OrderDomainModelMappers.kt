@@ -7,7 +7,7 @@ import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationComma
 fun OrderCreationCommand.toOrder() =
     Order(
         customerId = customerId,
-        symbol = symbol,
+        symbol = stock,
         quantity = quantity,
         priceLimit = priceLimit,
         orderDirection = orderDirection,
@@ -16,7 +16,7 @@ fun OrderCreationCommand.toOrder() =
 fun Order.toOrderFilledEvent() =
     OrderFilledEvent(
         customerId,
-        symbol,
+        stock,
         quantity,
         priceLimit,
     )
