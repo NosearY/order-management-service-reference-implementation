@@ -4,7 +4,7 @@ import com.acmebank.ordermanagementservice.buyingpower.domain.model.BuyingPowerU
 import java.math.BigDecimal
 
 interface CoreBankingBalanceSupplier {
-  fun getAvailableBalance(customerId: String): BigDecimal
+    fun getAvailableBalance(customerId: String): BigDecimal
 
-  fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand)
+    fun updateAvailableBalance(buyingPowerUpdateCommand: BuyingPowerUpdateCommand)
 }

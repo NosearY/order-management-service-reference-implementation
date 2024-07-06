@@ -5,7 +5,7 @@ import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowe
 import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowerKey
 
 interface SellingPowerRepository {
-  fun updateSellingPower(orderFilledEvent: OrderFilledEvent)
+    fun updateSellingPower(orderFilledEvent: OrderFilledEvent)
 
-  fun getSellingPower(sellingPowerKey: SellingPowerKey): SellingPower
+    fun getSellingPower(sellingPowerKey: SellingPowerKey): SellingPower
 }

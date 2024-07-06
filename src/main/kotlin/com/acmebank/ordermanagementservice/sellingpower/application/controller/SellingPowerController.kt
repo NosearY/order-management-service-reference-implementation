@@ -14,21 +14,20 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/selling-powers")
 class SellingPowerController(
-  private val sellingPowerRepository: SellingPowerRepository,
+    private val sellingPowerRepository: SellingPowerRepository,
 ) {
-  @GetMapping("/{customerId}/{symbol}", produces = [MediaType.APPLICATION_JSON_VALUE])
-  fun getSellingPower(
-    @PathVariable customerId: String,
-    @PathVariable symbol: String,
-  ): ResponseEntity<SellingPowerResponse> {
-    return ResponseEntity.ok(
-      sellingPowerRepository.getSellingPower(SellingPowerKey(customerId, symbol)).toSellingPowerResponse(),
-    )
-  }
+    @GetMapping("/{customerId}/{symbol}", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getSellingPower(
+        @PathVariable customerId: String,
+        @PathVariable symbol: String,
+    ): ResponseEntity<SellingPowerResponse> =
+        ResponseEntity.ok(
+            sellingPowerRepository.getSellingPower(SellingPowerKey(customerId, symbol)).toSellingPowerResponse(),
+        )
 
-  private fun SellingPower.toSellingPowerResponse() =
-    SellingPowerResponse(
-      symbol = sellingPowerKey.symbol,
-      quantity = quantity,
-    )
+    private fun SellingPower.toSellingPowerResponse() =
+        SellingPowerResponse(
+            symbol = sellingPowerKey.symbol,
+            quantity = quantity,
+        )
 }

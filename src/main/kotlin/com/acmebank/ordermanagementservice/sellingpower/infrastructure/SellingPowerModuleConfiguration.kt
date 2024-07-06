@@ -8,10 +8,10 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Configuration
 class SellingPowerModuleConfiguration {
-  @Bean
-  fun sellingPowerRepository() = InMemorySellingPowerRepository(ConcurrentHashMap())
+    @Bean
+    fun sellingPowerRepository() = InMemorySellingPowerRepository(ConcurrentHashMap())
 
-  @Bean
-  fun orderFilledEventListener(sellingPowerRepository: SellingPowerRepository) =
-    SellingPowerOrderFilledEventListener(sellingPowerRepository)
+    @Bean
+    fun orderFilledEventListener(sellingPowerRepository: SellingPowerRepository) =
+        SellingPowerOrderFilledEventListener(sellingPowerRepository)
 }

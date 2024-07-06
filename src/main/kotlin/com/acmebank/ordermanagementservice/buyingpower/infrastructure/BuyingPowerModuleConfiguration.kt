@@ -10,16 +10,16 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Configuration
 class BuyingPowerModuleConfiguration {
-  @Bean
-  fun coreBankingRestClient() = CoreBankingRestClient(ConcurrentHashMap())
+    @Bean
+    fun coreBankingRestClient() = CoreBankingRestClient(ConcurrentHashMap())
 
-  @Bean
-  fun buyingPowerOrderFilledEventListener(buyingPowerDomainService: BuyingPowerDomainService) =
-    BuyingPowerOrderFilledEventListener(buyingPowerDomainService)
+    @Bean
+    fun buyingPowerOrderFilledEventListener(buyingPowerDomainService: BuyingPowerDomainService) =
+        BuyingPowerOrderFilledEventListener(buyingPowerDomainService)
 
-  @Bean
-  fun buyingPowerDomainService(coreBankingRestClient: CoreBankingRestClient) = BuyingPowerDomainService(coreBankingRestClient)
+    @Bean
+    fun buyingPowerDomainService(coreBankingRestClient: CoreBankingRestClient) = BuyingPowerDomainService(coreBankingRestClient)
 
-  @Bean
-  fun buyingPowerApiService(buyingPowerDomainService: BuyingPowerDomainService) = BuyingPowerApiService(buyingPowerDomainService)
+    @Bean
+    fun buyingPowerApiService(buyingPowerDomainService: BuyingPowerDomainService) = BuyingPowerApiService(buyingPowerDomainService)
 }

@@ -11,16 +11,16 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Configuration
 class OrderModuleConfiguration {
-  @Bean
-  fun orderRepository() = InMemoryOrderRepository(ConcurrentHashMap())
+    @Bean
+    fun orderRepository() = InMemoryOrderRepository(ConcurrentHashMap())
 
-  @Bean
-  fun orderValidationService(buyingPowerApiService: BuyingPowerApiService) = OrderValidationService(buyingPowerApiService)
+    @Bean
+    fun orderValidationService(buyingPowerApiService: BuyingPowerApiService) = OrderValidationService(buyingPowerApiService)
 
-  @Bean
-  fun orderService(
-    orderRepository: OrderRepository,
-    orderValidationService: OrderValidationService,
-    applicationEventPublisher: ApplicationEventPublisher,
-  ) = OrderDomainService(orderRepository, orderValidationService, applicationEventPublisher)
+    @Bean
+    fun orderService(
+        orderRepository: OrderRepository,
+        orderValidationService: OrderValidationService,
+        applicationEventPublisher: ApplicationEventPublisher,
+    ) = OrderDomainService(orderRepository, orderValidationService, applicationEventPublisher)
 }

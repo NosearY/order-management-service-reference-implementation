@@ -12,14 +12,13 @@ import java.math.BigDecimal
 @RestController
 @RequestMapping("/buying-powers")
 class BuyingPowerController(
-  private val buyingDomainServiceService: BuyingPowerDomainService,
+    private val buyingDomainServiceService: BuyingPowerDomainService,
 ) {
-  @GetMapping("/{customerId}", produces = [MediaType.APPLICATION_JSON_VALUE])
-  fun getBuyingPower(
-    @PathVariable customerId: String,
-  ): ResponseEntity<BigDecimal> {
-    return ResponseEntity.ok(
-      buyingDomainServiceService.getAvailableBuyingPower(customerId).balance,
-    )
-  }
+    @GetMapping("/{customerId}", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getBuyingPower(
+        @PathVariable customerId: String,
+    ): ResponseEntity<BigDecimal> =
+        ResponseEntity.ok(
+            buyingDomainServiceService.getAvailableBuyingPower(customerId).balance,
+        )
 }

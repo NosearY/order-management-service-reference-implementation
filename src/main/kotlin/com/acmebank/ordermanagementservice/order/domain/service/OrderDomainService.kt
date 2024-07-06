@@ -11,17 +11,17 @@ import org.springframework.context.ApplicationEventPublisher
 
 @AllOpen
 class OrderDomainService(
-  private val orderRepository: OrderRepository,
-  private val orderValidationService: OrderValidationService,
-  private val applicationEventPublisher: ApplicationEventPublisher,
+    private val orderRepository: OrderRepository,
+    private val orderValidationService: OrderValidationService,
+    private val applicationEventPublisher: ApplicationEventPublisher,
 ) {
-  @Transactional
-  fun saveOrder(orderCreationCommand: OrderCreationCommand) {
-    orderValidationService.validateOrderCreation(orderCreationCommand)
-    val order = orderCreationCommand.toOrder()
-    orderRepository.createOrder(order)
-    applicationEventPublisher.publishEvent(order.toOrderFilledEvent())
-  }
+    @Transactional
+    fun saveOrder(orderCreationCommand: OrderCreationCommand) {
+        orderValidationService.validateOrderCreation(orderCreationCommand)
+        val order = orderCreationCommand.toOrder()
+        orderRepository.createOrder(order)
+        applicationEventPublisher.publishEvent(order.toOrderFilledEvent())
+    }
 
-  fun listOrders(customerId: String): List<Order> = orderRepository.listOrders(customerId)
+    fun listOrders(customerId: String): List<Order> = orderRepository.listOrders(customerId)
 }
