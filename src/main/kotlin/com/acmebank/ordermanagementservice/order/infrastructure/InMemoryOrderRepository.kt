@@ -5,7 +5,9 @@ import com.acmebank.ordermanagementservice.order.domain.repository.OrderReposito
 import java.util.*
 
 class InMemoryOrderRepository(private val db: MutableMap<UUID, Order>) : OrderRepository {
-    override fun saveOrder(order: Order) {
-        db.computeIfAbsent(order.id) { order }
-    }
+  override fun createOrder(order: Order) {
+    db.computeIfAbsent(order.id) { order }
+  }
+
+  override fun listOrders(customerId: String): List<Order> = db.values.filter { it.customerId == customerId }
 }

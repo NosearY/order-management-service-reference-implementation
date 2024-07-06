@@ -1,4 +1,0 @@
-GET http://localhost:8080/selling-powers/123/TSLA
-Accept: application/json
-
-###

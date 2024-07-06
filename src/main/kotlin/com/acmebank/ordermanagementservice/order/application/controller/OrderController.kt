@@ -1,25 +1,42 @@
 package com.acmebank.ordermanagementservice.order.application.controller
 
 import com.acmebank.ordermanagementservice.order.application.dto.CreateOrderRequest
-import com.acmebank.ordermanagementservice.order.domain.service.OrderService
+import com.acmebank.ordermanagementservice.order.application.dto.OrderResponse
+import com.acmebank.ordermanagementservice.order.application.toOrderDTO
+import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
+import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
+import com.acmebank.ordermanagementservice.order.domain.service.OrderDomainService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/orders")
 class OrderController(
-    @Autowired private val orderService: OrderService
+  @Autowired private val orderDomainService: OrderDomainService,
 ) {
-
-    @PostMapping
-    fun createOrder(@RequestBody createOrderRequest: CreateOrderRequest): ResponseEntity<Void> {
-        with(createOrderRequest) {
-            orderService.saveOrder(customerId, symbol, quantity, priceLimit)
-        }
-        return ResponseEntity.accepted().build()
+  @PostMapping
+  fun createOrder(
+    @RequestBody createOrderRequest: CreateOrderRequest,
+  ): ResponseEntity<Void> {
+    with(createOrderRequest) {
+      orderDomainService.saveOrder(
+        OrderCreationCommand(
+          customerId,
+          OrderDirection.valueOf(orderDirection),
+          symbol,
+          quantity,
+          priceLimit,
+        ),
+      )
     }
+    return ResponseEntity.accepted().build()
+  }
+
+  @GetMapping("/{customerId}")
+  fun listOrder(
+    @PathVariable customerId: String,
+  ): ResponseEntity<List<OrderResponse>> {
+    return ResponseEntity.ok(orderDomainService.listOrders(customerId).map { it.toOrderDTO() })
+  }
 }

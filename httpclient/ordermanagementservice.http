@@ -1,0 +1,24 @@
+### List Orders
+GET http://localhost:8080/orders/123
+Accept: application/json
+
+### Create Order
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "customerId": "123",
+  "orderDirection": "BUY",
+  "symbol": "TSLA",
+  "quantity": 10,
+  "priceLimit": "240"
+}
+
+### GET Selling Power
+GET http://localhost:8080/selling-powers/123/TSLA
+Accept: application/json
+
+### GET Buying Power
+GET http://localhost:8080/buying-powers/123
+Accept: application/json
+

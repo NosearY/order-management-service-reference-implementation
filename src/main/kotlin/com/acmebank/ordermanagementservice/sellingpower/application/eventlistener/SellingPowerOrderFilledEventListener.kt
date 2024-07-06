@@ -7,15 +7,15 @@ import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
 @AllOpen
-class OrderFilledEventListener(
-    private val sellingPowerRepository: SellingPowerRepository
+class SellingPowerOrderFilledEventListener(
+  private val sellingPowerRepository: SellingPowerRepository,
 ) {
+  private val logger = LoggerFactory.getLogger(this::class.java)
 
-    private val logger = LoggerFactory.getLogger(this::class.java)
+  @ApplicationModuleListener
+  fun onOrderFilledEvent(orderFilledEvent: OrderFilledEvent) {
+    logger.info("Received $orderFilledEvent")
 
-    @ApplicationModuleListener
-    fun onOrderFilledEvent(orderFilledEvent: OrderFilledEvent) {
-        logger.info("Received $orderFilledEvent")
-        sellingPowerRepository.updateSellingPower(orderFilledEvent)
-    }
+    sellingPowerRepository.updateSellingPower(orderFilledEvent)
+  }
 }
