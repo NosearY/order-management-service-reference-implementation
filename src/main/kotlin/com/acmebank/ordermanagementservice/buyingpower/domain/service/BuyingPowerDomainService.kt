@@ -11,7 +11,7 @@ import java.time.Instant
 @AllOpen
 class BuyingPowerDomainService(
     private val coreBankingBalanceSupplier: CoreBankingBalanceSupplier,
-    private val applicationEventPublisher: ApplicationEventPublisher
+    private val applicationEventPublisher: ApplicationEventPublisher,
 ) {
     fun getAvailableBuyingPower(customerId: String): BuyingPower =
         BuyingPower(
@@ -27,8 +27,8 @@ class BuyingPowerDomainService(
                 customerId = buyingPowerUpdateCommand.customerId,
                 balance = updatedBalance,
                 delta = buyingPowerUpdateCommand.delta,
-                Instant.now()
-            )
+                Instant.now(),
+            ),
         )
     }
 }

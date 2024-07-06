@@ -6,7 +6,7 @@ class InsufficientBuyingPowerExceptions(
         message,
     )
 
-class OtherExceptions(
+class InsufficientSellingPowerExceptions(
     message: String,
 ) : RuntimeException(
         message,

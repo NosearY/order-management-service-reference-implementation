@@ -6,13 +6,11 @@ import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 
 @AllOpen
-class PortfolioAnalysisBuyingPowerUpdatedEventListener(
-) {
+class PortfolioAnalysisBuyingPowerUpdatedEventListener {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     @ApplicationModuleListener
     fun onBuyingPowerUpdatedEvent(buyingPowerUpdatedEvent: BuyingPowerUpdatedEvent) {
         logger.info("Received $buyingPowerUpdatedEvent")
     }
-
 }

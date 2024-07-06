@@ -2,6 +2,9 @@
 |===
 |Base package
 |`com.acmebank.ordermanagementservice.sellingpower`
+|Spring components
+|* `c.a.o.s.SellingPowerServiceApi`
 |Events listened to
-|* `c.a.o.o.OrderFilledEvent`
+|* `c.a.o.c.CorporateActionEffectiveEvent`
+* `c.a.o.o.OrderFilledEvent`
 |===

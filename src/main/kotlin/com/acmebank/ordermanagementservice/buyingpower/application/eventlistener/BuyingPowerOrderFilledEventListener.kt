@@ -19,7 +19,7 @@ class BuyingPowerOrderFilledEventListener(
 
         buyingPowerDomainService.updateBuyingPower(
             BuyingPowerUpdateCommand(
-                orderFilledEvent.customerId,
+                orderFilledEvent.account.customerId,
                 (orderFilledEvent.priceLimit * orderFilledEvent.quantity.toBigDecimal()).negate(),
             ),
         )

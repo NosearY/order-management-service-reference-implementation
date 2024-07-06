@@ -1,6 +1,7 @@
 package com.acmebank.ordermanagementservice.buyingpower.infrastructure
 
 import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
+import com.acmebank.ordermanagementservice.buyingpower.application.eventlistener.BuyingPowerCorporateActionEffectiveEventListener
 import com.acmebank.ordermanagementservice.buyingpower.application.eventlistener.BuyingPowerOrderFilledEventListener
 import com.acmebank.ordermanagementservice.buyingpower.domain.service.BuyingPowerDomainService
 import com.acmebank.ordermanagementservice.buyingpower.infrastructure.restclient.CoreBankingRestClient
@@ -19,8 +20,14 @@ class BuyingPowerModuleConfiguration {
         BuyingPowerOrderFilledEventListener(buyingPowerDomainService)
 
     @Bean
-    fun buyingPowerDomainService(coreBankingRestClient: CoreBankingRestClient, applicationEventPublisher: ApplicationEventPublisher) =
-        BuyingPowerDomainService(coreBankingRestClient, applicationEventPublisher)
+    fun buyingPowerCorporateActionEffectiveEventListener(buyingPowerDomainService: BuyingPowerDomainService) =
+        BuyingPowerCorporateActionEffectiveEventListener(buyingPowerDomainService)
+
+    @Bean
+    fun buyingPowerDomainService(
+        coreBankingRestClient: CoreBankingRestClient,
+        applicationEventPublisher: ApplicationEventPublisher,
+    ) = BuyingPowerDomainService(coreBankingRestClient, applicationEventPublisher)
 
     @Bean
     fun buyingPowerApiService(buyingPowerDomainService: BuyingPowerDomainService) = BuyingPowerApiService(buyingPowerDomainService)

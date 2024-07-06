@@ -9,24 +9,22 @@ import jakarta.transaction.Transactional
 import org.springframework.context.ApplicationEventPublisher
 import java.time.Instant
 
-
 @AllOpen
 class SellingPowerDomainService(
     private val sellingPowerRepository: SellingPowerRepository,
-    private val applicationEventPublisher: ApplicationEventPublisher
+    private val applicationEventPublisher: ApplicationEventPublisher,
 ) {
-
     @Transactional
     fun updateSellingPower(orderFilledEvent: OrderFilledEvent) {
         sellingPowerRepository.updateSellingPower(orderFilledEvent).also {
             applicationEventPublisher.publishEvent(
                 SellingPowerUpdatedEvent(
-                    customerId = orderFilledEvent.customerId,
-                    stock = orderFilledEvent.stock,
+                    customerId = orderFilledEvent.account.customerId,
+                    symbol = orderFilledEvent.stock.symbol,
                     quantity = it.quantity,
                     delta = orderFilledEvent.quantity,
-                    effectiveTimeStamp = Instant.now()
-                )
+                    effectiveTimeStamp = Instant.now(),
+                ),
             )
         }
     }

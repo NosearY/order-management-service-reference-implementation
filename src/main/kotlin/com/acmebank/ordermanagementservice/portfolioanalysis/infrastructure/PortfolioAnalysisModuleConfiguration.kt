@@ -7,11 +7,9 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class PortfolioAnalysisModuleConfiguration {
-
     @Bean
     fun portfolioAnalysisBuyingPowerUpdatedEventListener() = PortfolioAnalysisBuyingPowerUpdatedEventListener()
 
     @Bean
     fun portfolioAnalysisSellingPowerUpdatedEventListener() = PortfolioAnalysisSellingPowerUpdatedEventListener()
-
 }

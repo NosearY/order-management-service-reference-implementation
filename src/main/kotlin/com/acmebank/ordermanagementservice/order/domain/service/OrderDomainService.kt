@@ -1,6 +1,7 @@
 package com.acmebank.ordermanagementservice.order.domain.service
 
 import com.acmebank.ordermanagementservice.AllOpen
+import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.order.domain.model.Order
 import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
 import com.acmebank.ordermanagementservice.order.domain.repository.OrderRepository
@@ -23,5 +24,5 @@ class OrderDomainService(
         applicationEventPublisher.publishEvent(order.toOrderFilledEvent())
     }
 
-    fun listOrders(customerId: String): List<Order> = orderRepository.listOrders(customerId)
+    fun listOrders(account: Account): List<Order> = orderRepository.listOrders(account)
 }

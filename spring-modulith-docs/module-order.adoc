@@ -4,4 +4,5 @@
 |`com.acmebank.ordermanagementservice.order`
 |Bean references
 |* `c.a.o.b.BuyingPowerApiService` (in Buyingpower)
+* `c.a.o.s.SellingPowerServiceApi` (in Sellingpower)
 |===

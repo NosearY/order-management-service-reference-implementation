@@ -7,11 +7,9 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class NotificationModuleConfiguration {
-
     @Bean
     fun notificationBuyingPowerUpdatedEventListener() = NotificationBuyingPowerUpdatedEventListener()
 
     @Bean
     fun notificationAnalysisSellingPowerUpdatedEventListener() = NotificationAnalysisSellingPowerUpdatedEventListener()
-
 }

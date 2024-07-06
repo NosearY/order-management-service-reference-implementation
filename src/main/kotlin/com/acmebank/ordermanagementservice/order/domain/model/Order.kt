@@ -1,5 +1,6 @@
 package com.acmebank.ordermanagementservice.order.domain.model
 
+import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.marketdata.Stock
 import java.math.BigDecimal
 import java.time.Instant
@@ -12,7 +13,7 @@ data class Order(
     val id: UUID,
     val orderDirection: OrderDirection,
     val referenceNo: String,
-    val customerId: String,
+    val account: Account,
     val stock: Stock,
     val quantity: Float,
     val priceLimit: BigDecimal,
@@ -23,7 +24,7 @@ data class Order(
     }
 
     constructor(
-        customerId: String,
+        account: Account,
         symbol: Stock,
         quantity: Float,
         priceLimit: BigDecimal,
@@ -32,7 +33,7 @@ data class Order(
         id = UUID.randomUUID(),
         orderDirection = orderDirection,
         referenceNo = "${dateTimeFormatter.format(Instant.now())}_${(Math.random() * 10.0.pow(6.0)).toInt()}",
-        customerId = customerId,
+        account = account,
         stock = symbol,
         quantity = quantity,
         priceLimit = priceLimit,

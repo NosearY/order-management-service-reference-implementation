@@ -1,13 +1,16 @@
 package com.acmebank.ordermanagementservice.order.domain.service
 
 import com.acmebank.ordermanagementservice.InsufficientBuyingPowerExceptions
+import com.acmebank.ordermanagementservice.InsufficientSellingPowerExceptions
 import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
 import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
 import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
+import com.acmebank.ordermanagementservice.sellingpower.SellingPowerServiceApi
 import java.math.BigDecimal
 
 class OrderValidationService(
     private val buyingPowerApiService: BuyingPowerApiService,
+    private val sellingPowerServiceApi: SellingPowerServiceApi,
 ) {
     fun validateOrderCreation(orderCreationCommand: OrderCreationCommand) {
         when (orderCreationCommand.orderDirection) {
@@ -18,13 +21,20 @@ class OrderValidationService(
 
     private fun validateBuyingPower(orderCreationCommand: OrderCreationCommand) {
         val netAmount = orderCreationCommand.priceLimit * orderCreationCommand.quantity.toBigDecimal()
-        val diff = buyingPowerApiService.getAvailableBuyingPower(orderCreationCommand.customerId).balance - netAmount
+        val diff = buyingPowerApiService.getAvailableBuyingPower(orderCreationCommand.account.customerId).balance - netAmount
         if (diff < BigDecimal.ZERO) {
             throw InsufficientBuyingPowerExceptions("Customer balance is insufficient, difference is $diff")
         }
     }
 
     private fun validateSellingPower(orderCreationCommand: OrderCreationCommand) {
-        // TODO
+        val diff =
+            sellingPowerServiceApi.getAvailableSellingPower(
+                orderCreationCommand.account.customerId,
+                orderCreationCommand.stock.symbol,
+            ) - orderCreationCommand.quantity.toBigDecimal()
+        if (diff < BigDecimal.ZERO) {
+            throw InsufficientSellingPowerExceptions("Customer balance is insufficient, difference is $diff")
+        }
     }
 }

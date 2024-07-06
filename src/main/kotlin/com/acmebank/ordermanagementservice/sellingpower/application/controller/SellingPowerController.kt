@@ -1,6 +1,5 @@
 package com.acmebank.ordermanagementservice.sellingpower.application.controller
 
-import com.acmebank.ordermanagementservice.marketdata.Stock
 import com.acmebank.ordermanagementservice.sellingpower.application.dto.SellingPowerResponse
 import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerDomainService
 import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPower
@@ -23,12 +22,12 @@ class SellingPowerController(
         @PathVariable symbol: String,
     ): ResponseEntity<SellingPowerResponse> =
         ResponseEntity.ok(
-            sellingPowerDomainService.getSellingPower(SellingPowerKey(customerId, Stock(symbol))).toSellingPowerResponse(),
+            sellingPowerDomainService.getSellingPower(SellingPowerKey(customerId, symbol)).toSellingPowerResponse(),
         )
 
     private fun SellingPower.toSellingPowerResponse() =
         SellingPowerResponse(
-            symbol = sellingPowerKey.stock.symbol,
+            symbol = sellingPowerKey.symbol,
             quantity = quantity,
         )
 }

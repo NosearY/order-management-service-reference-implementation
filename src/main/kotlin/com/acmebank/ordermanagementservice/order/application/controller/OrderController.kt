@@ -1,5 +1,6 @@
 package com.acmebank.ordermanagementservice.order.application.controller
 
+import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.marketdata.Stock
 import com.acmebank.ordermanagementservice.order.application.dto.CreateOrderRequest
 import com.acmebank.ordermanagementservice.order.application.dto.OrderResponse
@@ -28,7 +29,7 @@ class OrderController(
         with(createOrderRequest) {
             orderDomainService.saveOrder(
                 OrderCreationCommand(
-                    customerId,
+                    Account(customerId),
                     OrderDirection.valueOf(orderDirection),
                     Stock(symbol),
                     quantity,
@@ -42,5 +43,5 @@ class OrderController(
     @GetMapping("/{customerId}")
     fun listOrder(
         @PathVariable customerId: String,
-    ): ResponseEntity<List<OrderResponse>> = ResponseEntity.ok(orderDomainService.listOrders(customerId).map { it.toOrderDTO() })
+    ): ResponseEntity<List<OrderResponse>> = ResponseEntity.ok(orderDomainService.listOrders(Account(customerId)).map { it.toOrderDTO() })
 }

@@ -10,8 +10,12 @@ top to bottom direction
 
 Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "Corporateaction", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "Marketdata", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "Account", $techn="Module", $descr="", $tags="", $link="")
 }
 
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "depends on", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "depends on", $techn="", $tags="", $link="")
 
 SHOW_LEGEND(true)
 @enduml
