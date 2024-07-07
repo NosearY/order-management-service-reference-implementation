@@ -1,15 +1,15 @@
-package com.acmebank.ordermanagementservice.order.domain.service
+package com.acmebank.ordermanagementservice.order.component.service
 
 import com.acmebank.ordermanagementservice.AllOpen
 import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerUpdateCommandApi
-import com.acmebank.ordermanagementservice.order.domain.BuyingPowerUpdateCommandPublisher
-import com.acmebank.ordermanagementservice.order.domain.OrderRepository
-import com.acmebank.ordermanagementservice.order.domain.SellingPowerUpdateCommandPublisher
-import com.acmebank.ordermanagementservice.order.domain.model.Order
-import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
-import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
-import com.acmebank.ordermanagementservice.order.domain.toOrder
+import com.acmebank.ordermanagementservice.order.component.BuyingPowerUpdateCommandPublisher
+import com.acmebank.ordermanagementservice.order.component.OrderRepository
+import com.acmebank.ordermanagementservice.order.component.SellingPowerUpdateCommandPublisher
+import com.acmebank.ordermanagementservice.order.component.model.Order
+import com.acmebank.ordermanagementservice.order.component.model.OrderCreationCommand
+import com.acmebank.ordermanagementservice.order.component.model.OrderDirection
+import com.acmebank.ordermanagementservice.order.component.toOrder
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerUpdateCommandApi
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service

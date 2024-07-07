@@ -1,7 +1,7 @@
 package com.acmebank.ordermanagementservice.order.adapter.springevent
 
 import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerUpdateCommandApi
-import com.acmebank.ordermanagementservice.order.domain.BuyingPowerUpdateCommandPublisher
+import com.acmebank.ordermanagementservice.order.component.BuyingPowerUpdateCommandPublisher
 import org.springframework.context.ApplicationEventPublisher
 
 class SpringBuyingPowerUpdateCommandPublisher(

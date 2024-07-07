@@ -1,7 +1,7 @@
 package com.acmebank.ordermanagementservice.sellingpower.adapter.springevent
 
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerUpdatedEvent
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerUpdatedEventPublisher
+import com.acmebank.ordermanagementservice.sellingpower.component.SellingPowerUpdatedEventPublisher
 import org.springframework.context.ApplicationEventPublisher
 
 class SpringSellingPowerUpdatedEventPublisher(

@@ -2,8 +2,8 @@ package com.acmebank.ordermanagementservice.sellingpower.feature
 
 import com.acmebank.ordermanagementservice.AllOpen
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerUpdateCommandApi
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerService
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowerUpdateCommand
+import com.acmebank.ordermanagementservice.sellingpower.component.SellingPowerService
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPowerUpdateCommand
 import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 import org.springframework.stereotype.Component

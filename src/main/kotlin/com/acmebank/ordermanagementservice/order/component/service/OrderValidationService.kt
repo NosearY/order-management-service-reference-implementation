@@ -1,10 +1,10 @@
-package com.acmebank.ordermanagementservice.order.domain.service
+package com.acmebank.ordermanagementservice.order.component.service
 
 import com.acmebank.ordermanagementservice.InsufficientBuyingPowerExceptions
 import com.acmebank.ordermanagementservice.InsufficientSellingPowerExceptions
 import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
-import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
-import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
+import com.acmebank.ordermanagementservice.order.component.model.OrderCreationCommand
+import com.acmebank.ordermanagementservice.order.component.model.OrderDirection
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerApiService
 import org.springframework.stereotype.Service
 import java.math.BigDecimal

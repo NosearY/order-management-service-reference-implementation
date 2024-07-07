@@ -2,10 +2,10 @@ package com.acmebank.ordermanagementservice.order.feature
 
 import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.marketdata.Stock
-import com.acmebank.ordermanagementservice.order.domain.model.Order
-import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
-import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
-import com.acmebank.ordermanagementservice.order.domain.service.OrderService
+import com.acmebank.ordermanagementservice.order.component.model.Order
+import com.acmebank.ordermanagementservice.order.component.model.OrderCreationCommand
+import com.acmebank.ordermanagementservice.order.component.model.OrderDirection
+import com.acmebank.ordermanagementservice.order.component.service.OrderService
 import com.acmebank.ordermanagementservice.order.feature.dto.CreateOrderRequest
 import com.acmebank.ordermanagementservice.order.feature.dto.OrderResponse
 import org.springframework.beans.factory.annotation.Autowired

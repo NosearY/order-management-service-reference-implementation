@@ -1,8 +1,8 @@
 package com.acmebank.ordermanagementservice.sellingpower.feature
 
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerService
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPower
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowerKey
+import com.acmebank.ordermanagementservice.sellingpower.component.SellingPowerService
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPower
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPowerKey
 import com.acmebank.ordermanagementservice.sellingpower.feature.dto.SellingPowerResponse
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity

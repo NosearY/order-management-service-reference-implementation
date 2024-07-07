@@ -1,9 +1,9 @@
 package com.acmebank.ordermanagementservice.sellingpower.adapter.inmemory
 
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerRepository
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPower
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowerKey
-import com.acmebank.ordermanagementservice.sellingpower.domain.model.SellingPowerUpdateCommand
+import com.acmebank.ordermanagementservice.sellingpower.component.SellingPowerRepository
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPower
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPowerKey
+import com.acmebank.ordermanagementservice.sellingpower.component.model.SellingPowerUpdateCommand
 
 class InMemorySellingPowerRepository(
     private val db: MutableMap<SellingPowerKey, SellingPower>,

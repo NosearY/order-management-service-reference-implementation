@@ -1,4 +1,4 @@
-package com.acmebank.ordermanagementservice.order.domain.model
+package com.acmebank.ordermanagementservice.order.component.model
 
 import com.acmebank.ordermanagementservice.account.Account
 import com.acmebank.ordermanagementservice.marketdata.Stock

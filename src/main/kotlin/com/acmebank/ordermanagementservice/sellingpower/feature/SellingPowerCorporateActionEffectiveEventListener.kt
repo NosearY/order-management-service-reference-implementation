@@ -2,7 +2,7 @@ package com.acmebank.ordermanagementservice.sellingpower.feature
 
 import com.acmebank.ordermanagementservice.AllOpen
 import com.acmebank.ordermanagementservice.corporateaction.CorporateActionEffectiveEvent
-import com.acmebank.ordermanagementservice.sellingpower.domain.SellingPowerService
+import com.acmebank.ordermanagementservice.sellingpower.component.SellingPowerService
 import org.slf4j.LoggerFactory
 import org.springframework.modulith.events.ApplicationModuleListener
 import org.springframework.stereotype.Component
