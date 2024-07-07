@@ -6,8 +6,10 @@ import com.acmebank.ordermanagementservice.buyingpower.BuyingPowerApiService
 import com.acmebank.ordermanagementservice.order.domain.model.OrderCreationCommand
 import com.acmebank.ordermanagementservice.order.domain.model.OrderDirection
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerApiService
+import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
+@Service
 class OrderValidationService(
     private val buyingPowerApi: BuyingPowerApiService,
     private val sellingPowerApiService: SellingPowerApiService,
@@ -21,7 +23,7 @@ class OrderValidationService(
 
     private fun validateBuyingPower(orderCreationCommand: OrderCreationCommand) {
         val netAmount = orderCreationCommand.priceLimit * orderCreationCommand.quantity.toBigDecimal()
-        val diff = buyingPowerApi.getAvailableBuyingPower(orderCreationCommand.account.customerId).balance - netAmount
+        val diff = buyingPowerApi.getAvailableBuyingPower(orderCreationCommand.account.customerId) - netAmount
         if (diff < BigDecimal.ZERO) {
             throw InsufficientBuyingPowerExceptions("Customer balance is insufficient, difference is $diff")
         }

@@ -1,0 +1,36 @@
+@startuml
+set separator none
+title OrderManagementServiceApplication
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "Order", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, "Portfolioanalysis", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "Corporateaction", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "Marketdata", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "Account", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Notifications, "Notifications", $techn="Module", $descr="", $tags="", $link="")
+}
+
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Notifications, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Notifications, OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "depends on", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "depends on", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "uses", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "uses", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Portfolioanalysis, OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "listens to", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "depends on", $techn="", $tags="", $link="")
+Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "depends on", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml
