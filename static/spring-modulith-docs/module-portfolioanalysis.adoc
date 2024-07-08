@@ -3,6 +3,6 @@
 |Base package
 |`com.acmebank.ordermanagementservice.portfolioanalysis`
 |Events listened to
-|* `c.a.o.b.BuyingPowerUpdatedEvent`
-* `c.a.o.s.SellingPowerUpdatedEvent`
+|* `c.a.o.c.CorporateActionEffectiveEvent`
+* `c.a.o.o.OrderFilledEvent`
 |===

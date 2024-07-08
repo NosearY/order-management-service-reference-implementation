@@ -9,11 +9,9 @@ top to bottom direction
 !include <C4/C4_Component>
 
 Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
-  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "Corporateaction", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
 }
 
-Rel(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, OrderManagementServiceApplication.OrderManagementServiceApplication.Corporateaction, "listens to", $techn="", $tags="", $link="")
 
 SHOW_LEGEND(true)
 @enduml

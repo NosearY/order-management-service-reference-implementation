@@ -5,7 +5,5 @@
 |Spring components
 |_Services_
 
-* `c.a.o.s.SellingPowerApiService` (via `c.a.o.s.domain.SellingPowerService`)
-|Events listened to
-|* `c.a.o.c.CorporateActionEffectiveEvent`
+* `c.a.o.s.SellingPowerApiService` (via `c.a.o.s.component.SellingPowerService`)
 |===

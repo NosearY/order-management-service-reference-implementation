@@ -10,9 +10,9 @@ top to bottom direction
 
 Container_Boundary("OrderManagementServiceApplication.OrderManagementServiceApplication_boundary", "OrderManagementServiceApplication", $tags="") {
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Order, "Order", $techn="Module", $descr="", $tags="", $link="")
+  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Marketdata, "Marketdata", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Sellingpower, "Sellingpower", $techn="Module", $descr="", $tags="", $link="")
-  Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Buyingpower, "Buyingpower", $techn="Module", $descr="", $tags="", $link="")
   Component(OrderManagementServiceApplication.OrderManagementServiceApplication.Account, "Account", $techn="Module", $descr="", $tags="", $link="")
 }
 

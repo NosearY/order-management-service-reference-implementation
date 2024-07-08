@@ -3,6 +3,6 @@
 |Base package
 |`com.acmebank.ordermanagementservice.notifications`
 |Events listened to
-|* `c.a.o.s.SellingPowerUpdatedEvent`
-* `c.a.o.b.BuyingPowerUpdatedEvent`
+|* `c.a.o.c.CorporateActionEffectiveEvent`
+* `c.a.o.o.OrderFilledEvent`
 |===
