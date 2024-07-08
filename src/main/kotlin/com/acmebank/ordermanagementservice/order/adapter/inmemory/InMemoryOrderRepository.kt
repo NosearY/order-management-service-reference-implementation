@@ -1,8 +1,8 @@
 package com.acmebank.ordermanagementservice.order.adapter.inmemory
 
 import com.acmebank.ordermanagementservice.account.Account
-import com.acmebank.ordermanagementservice.order.component.OrderRepository
-import com.acmebank.ordermanagementservice.order.component.model.Order
+import com.acmebank.ordermanagementservice.order.domain.OrderRepository
+import com.acmebank.ordermanagementservice.order.domain.model.Order
 import java.util.UUID
 
 class InMemoryOrderRepository(

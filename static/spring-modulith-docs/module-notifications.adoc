@@ -5,4 +5,6 @@
 |Events listened to
 |* `c.a.o.c.CorporateActionEffectiveEvent`
 * `c.a.o.o.OrderFilledEvent`
+* `c.a.o.c.CorporateActionEffectiveEvent`
+* `c.a.o.o.OrderFilledEvent`
 |===

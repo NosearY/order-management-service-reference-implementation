@@ -10,4 +10,4 @@
 * Spring Modulith
 * Hexagonal Architecture
 
-![hexagonal-architecture-features-and-components-variants](static/hexagonal-architecture-features-and-components-variants.drawio.svg)
+![hexagonal-architecture-features-and-components-variants](static/hexagonal-architecture-ports-and-adapters.drawio.svg)

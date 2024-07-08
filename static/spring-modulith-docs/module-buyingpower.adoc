@@ -5,5 +5,5 @@
 |Spring components
 |_Services_
 
-* `c.a.o.b.BuyingPowerApiService` (via `c.a.o.b.component.service.BuyingPowerService`)
+* `c.a.o.b.BuyingPowerApiService` (via `c.a.o.b.domain.service.BuyingPowerService`)
 |===

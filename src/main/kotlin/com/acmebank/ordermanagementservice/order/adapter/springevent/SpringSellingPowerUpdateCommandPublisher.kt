@@ -1,6 +1,6 @@
 package com.acmebank.ordermanagementservice.order.adapter.springevent
 
-import com.acmebank.ordermanagementservice.order.component.SellingPowerUpdateCommandPublisher
+import com.acmebank.ordermanagementservice.order.domain.SellingPowerUpdateCommandPublisher
 import com.acmebank.ordermanagementservice.sellingpower.SellingPowerUpdateCommandApi
 import org.springframework.context.ApplicationEventPublisher
 
